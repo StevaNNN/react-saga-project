@@ -1,9 +1,9 @@
-import React from 'react'
-import App from './App'
-import { BrowserRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
-import store, { persistor } from './store'
+import React from "react";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import store, { persistor } from "./store";
 
 export default function WrapperApp() {
   return (
@@ -14,5 +14,5 @@ export default function WrapperApp() {
         </BrowserRouter>
       </PersistGate>
     </Provider>
-  )
+  );
 }
