@@ -18,7 +18,6 @@ const Practice2 = () => {
     setValue(numericValue);
   };
 
-  console.log(value, "value");
   return (
     <>
       <h1>Numerical input with formating</h1>

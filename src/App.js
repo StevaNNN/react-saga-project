@@ -3,6 +3,7 @@ import { getUsers } from "./store/users/actions";
 import { getPosts } from "./store/posts/actions";
 import Practice from "./Practise";
 import Practice2 from "./Practise2";
+import TodoApp from "./Practise3";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function App() {
       </div>
       <Practice />
       <Practice2 />
+      <TodoApp />
     </>
   );
 }
