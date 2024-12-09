@@ -14,7 +14,7 @@ export const useFetch = ({ api, onSuccess, onError }) => {
         setData(data);
         onSuccess && onSuccess();
       } catch (e) {
-        onError && onError(e);
+        onError && onError(e.response.data);
       }
     };
     if (api) fetchData();
@@ -62,6 +62,7 @@ export const TodoItem = ({ data, removeTodo, completeTodo }) => {
 };
 
 const TodoApp = () => {
+  const getAmountOfTodos = 200;
   const getTodos = useFetch({
     api: "https://jsonplaceholder.typicode.com/todos",
     onSuccess: useCallback(() => console.log("this is successull request"), []),
@@ -69,7 +70,7 @@ const TodoApp = () => {
   });
   const { data: todos, setData: setTodos, loading } = getTodos;
   const [newTodoText, setNewTodoText] = useState("");
-  const getAmountOfTodos = 10;
+
   const [clickedAmount, setClickedAmount] = useState(1);
 
   const removeTodoHandler = (id) => {
@@ -86,16 +87,19 @@ const TodoApp = () => {
 
   const addNewTodo = () => {
     setClickedAmount((prevState) => prevState + 1);
-    const localTodos = todos;
+    const tempTodos = todos;
     const newTodo = {
       userId: 1,
       id: getAmountOfTodos + clickedAmount,
       title: newTodoText,
       completed: false,
     };
-    newTodoText && localTodos.push(newTodo);
-    setTodos(localTodos);
+    newTodoText && tempTodos.push(newTodo);
+    setTodos(tempTodos);
     setNewTodoText("");
+    const lis = document.querySelectorAll("li");
+    const last = lis[lis.length - 1];
+    last.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
