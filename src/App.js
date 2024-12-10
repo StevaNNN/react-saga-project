@@ -4,6 +4,7 @@ import { getPosts } from "./store/posts/actions";
 import Practice from "./Practise";
 import Practice2 from "./Practise2";
 import TodoApp from "./Practise3";
+import LoginPage from "./LiveCodingExample";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ function App() {
       <Practice />
       <Practice2 />
       <TodoApp />
+      <LoginPage />
     </>
   );
 }
