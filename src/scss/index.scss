@@ -1,0 +1,24 @@
+$primary: blue;
+$primary-light: lightblue;
+$disabled: gray;
+$general-border: darkgray;
+$general-radius: 8px;
+$general-radius-big: $general-radius * 2;
+$general-font-size: 1.4rem;
+
+// 1rem to be 10px
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: $general-font-size;
+}
+
+* {
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+@import './components/index';
+@import './pages/index';

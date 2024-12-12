@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./LoginForm.css";
 import { DUMMY_JSON_API } from "../../api";
+import Button from "../../components/Button";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -37,9 +37,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", gap: 20, padding: 20 }}
-    >
+    <div className="ss-login-form ss-vbox">
       <h1>Brand</h1>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         <h2>Login</h2>
@@ -60,9 +58,9 @@ const LoginPage = () => {
               onChange={hanldePasswordChange}
             />
           </div>
-          <button type="submit" disabled={!email || !password}>
+          <Button type="submit" disabled={!email || !password}>
             Sign in
-          </button>
+          </Button>
         </form>
       </div>
       {formState?.message && (

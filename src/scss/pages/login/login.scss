@@ -1,0 +1,37 @@
+.ss-login-form {
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid $general-border;
+}
+.loginDialog {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 24px 0;
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .field label {
+    color: #000;
+    font-size: 14px;
+    line-break: 22px;
+  }
+  
+  .field input {
+    border: 1px solid #989fb9;
+    border-radius: 4px;
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  

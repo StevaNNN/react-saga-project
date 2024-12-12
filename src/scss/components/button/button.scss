@@ -1,0 +1,24 @@
+.ss-button {
+    padding: 1rem 2rem;
+    background: $primary;
+    border: 1px solid $primary;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 75px;;
+    font-size: $general-font-size;
+    border-radius: $general-radius;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+
+    &:hover {
+        background-color: $primary-light;
+        border-color: $primary-light;
+    }
+
+    &:disabled {
+        background-color: $disabled;
+        border-color: $disabled;
+    }
+}

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 
-export const Layout = ({
+const Layout = ({
     header,
     routes = []
 }) => {
@@ -18,3 +18,5 @@ export const Layout = ({
         </Routes>
     </div>
 }
+
+export default Layout;
