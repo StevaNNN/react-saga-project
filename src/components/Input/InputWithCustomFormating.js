@@ -1,6 +1,6 @@
-import { createRef, useEffect, useState } from "react";
+import { createRef, useState } from "react";
 
-const Practice2 = () => {
+const InputWithCustomFormating = () => {
   const [value, setValue] = useState("");
   const inputRef = createRef(null);
 
@@ -26,4 +26,4 @@ const Practice2 = () => {
   );
 };
 
-export default Practice2;
+export default InputWithCustomFormating;

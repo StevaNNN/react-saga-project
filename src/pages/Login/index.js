@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./LoginForm.css";
+import { DUMMY_JSON_API } from "../../api";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     const sendUser = async () => {
-      const request = await fetch("https://dummyjson.com/auth/login", {
+      const request = await fetch(`${DUMMY_JSON_API}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

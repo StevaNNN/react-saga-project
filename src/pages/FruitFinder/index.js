@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useDebounce } from "./helpers/hooks/hooks";
+import { useDebounce } from "../../helpers/hooks/hooks";
 
 const fruits = ["banana", "apple", "carot"];
 
-const Practice = () => {
+const FruitFinder = () => {
   const [fruitsData, setFruitsData] = useState(fruits);
   const [term, setTerm] = useState("");
   const debouncedTerm = useDebounce(term, 500);
@@ -50,4 +50,4 @@ const Practice = () => {
   );
 };
 
-export default Practice;
+export default FruitFinder;

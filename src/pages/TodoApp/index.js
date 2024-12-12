@@ -1,70 +1,12 @@
-import React, { useCallback, useEffect, useState } from "react";
-
-export const useFetch = ({ api, onSuccess, onError }) => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(api);
-        const data = await response.json();
-        setLoading(false);
-        setData(data);
-        onSuccess && onSuccess();
-      } catch (e) {
-        onError && onError(e.response.data);
-      }
-    };
-    if (api) fetchData();
-    // if we add this onError or onSuccess as deps here
-    // we need to make sure they are wrapped with useCallback hook
-    // because they are recreated on each re-render without it with useCallback react caches those callbacks
-  }, [api, onError, onSuccess]);
-
-  if (api) {
-    return { data, setData, loading };
-  }
-  return null;
-};
-
-export const TodoItem = ({ data, removeTodo, completeTodo }) => {
-  return (
-    <li
-      style={{
-        border: "1px solid black",
-        borderRadius: 8,
-        listStyleType: "none",
-        padding: 8,
-        width: 700,
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      {data.title}
-      <div>
-        <label htmlFor={`completeTodo-${data.id}`}>
-          Complete Todo
-          <input
-            id={`completeTodo-${data.id}`}
-            type="checkbox"
-            checked={data.completed}
-            onChange={() => completeTodo && completeTodo(data.id)}
-          />
-        </label>
-        <button onClick={() => removeTodo && removeTodo(data.id)}>
-          Delete todo
-        </button>
-      </div>
-    </li>
-  );
-};
+import React, { useCallback, useState } from "react";
+import { useFetch } from "../../helpers/hooks/hooks";
+import { TodoItem } from "./components/TodoItem";
+import { JSON_PLACEHOLDER_API } from "../../api";
 
 const TodoApp = () => {
   const getAmountOfTodos = 200;
   const getTodos = useFetch({
-    api: "https://jsonplaceholder.typicode.com/todos",
+    api: `${JSON_PLACEHOLDER_API}/todos`,
     onSuccess: useCallback(() => console.log("this is successull request"), []),
     onError: useCallback((err) => console.log(err), []),
   });
@@ -125,7 +67,7 @@ const TodoApp = () => {
             }}
           >
             {todos.length
-              ? todos?.map((todo, idx) => (
+              ? todos?.map((todo) => (
                   <React.Fragment key={todo.id}>
                     <TodoItem
                       data={todo}
