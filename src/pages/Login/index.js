@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DUMMY_JSON_API } from "../../api";
-import Button from "../../components/Button";
+import Button from "../../components/button";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");

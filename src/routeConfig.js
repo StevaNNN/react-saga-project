@@ -9,6 +9,12 @@ import TanstackQuery from "./pages/TanstackQuery";
 
 export const routes = [
   {
+    path: "/login",
+    text: "Login",
+    element: <LoginPage />,
+    index: true,
+  },
+  {
     path: "/users",
     text: "Users",
     element: <UsersPage />,
@@ -32,12 +38,6 @@ export const routes = [
     path: "/custom-input-formating",
     text: "Input With Formating",
     element: <InputWithCustomFormating />,
-  },
-  {
-    path: "/login",
-    text: "Login",
-    element: <LoginPage />,
-    index: true,
   },
   {
     path: "/tanstack-query",
