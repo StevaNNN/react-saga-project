@@ -6,6 +6,7 @@ import PostsPage from "./pages/Posts";
 import TodoApp from "./pages/TodoApp";
 import UsersPage from "./pages/Users";
 import TanstackQuery from "./pages/TanstackQuery";
+import PollPage from "./pages/Poll";
 
 export const routes = [
   {
@@ -43,6 +44,12 @@ export const routes = [
     path: "/tanstack-query",
     text: "Tanstack Query",
     element: <TanstackQuery />,
+  },
+
+  {
+    path: "/poll",
+    text: "Poll App",
+    element: <PollPage />,
   },
   {
     path: "*",
